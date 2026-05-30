@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Banco Parcial - Circuit Breaker y CQRS</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Parcial III - Patrones Arquitectonicos Avanzados</p>
+          <h1>Banco Parcial</h1>
+        </div>
+        <button id="refreshAll" type="button">Actualizar</button>
+      </header>
+
+      <section class="grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Parte 1</p>
+              <h2>SMS con Circuit Breaker</h2>
+            </div>
+            <span id="circuitBadge" class="badge">CLOSED</span>
+          </div>
+
+          <form id="smsForm" class="form">
+            <label>
+              Telefono
+              <input name="phone" value="3001234567" required>
+            </label>
+            <label>
+              Mensaje
+              <textarea name="message" required>Tu codigo OTP es 123456</textarea>
+            </label>
+            <button type="submit">Enviar SMS</button>
+          </form>
+
+          <div class="actions">
+            <button id="failAldeamo" type="button">Forzar falla Aldeamo</button>
+            <button id="recoverAldeamo" type="button">Recuperar Aldeamo</button>
+          </div>
+
+          <pre id="smsOutput" class="output">{}</pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Parte 2</p>
+              <h2>CQRS Transferencias</h2>
+            </div>
+            <button id="manualSync" type="button">Sync manual</button>
+          </div>
+
+          <form id="transferForm" class="form">
+            <label>
+              Cuenta origen
+              <input name="cuentaOrigen" value="12345" required>
+            </label>
+            <label>
+              Cuenta destino
+              <input name="cuentaDestino" value="67890" required>
+            </label>
+            <label>
+              Monto
+              <input name="monto" type="number" value="50000" min="1" required>
+            </label>
+            <button type="submit">Crear transferencia</button>
+          </form>
+
+          <pre id="transferOutput" class="output">{}</pre>
+        </article>
+      </section>
+
+      <section class="data-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Command</p>
+              <h2>PostgreSQL</h2>
+            </div>
+            <button id="loadSql" type="button">Consultar SQL</button>
+          </div>
+          <pre id="sqlOutput" class="output small">{}</pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Query</p>
+              <h2>MongoDB</h2>
+            </div>
+            <button id="loadNosql" type="button">Consultar NoSQL</button>
+          </div>
+          <pre id="nosqlOutput" class="output small">{}</pre>
+        </article>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
