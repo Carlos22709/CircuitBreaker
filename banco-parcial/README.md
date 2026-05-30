@@ -1,4 +1,5 @@
-# Banco Parcial - Circuit Breaker y CQRS
+# Banco Parcial - Circuit Breaker y CQRS 
+# Carlos Sánchez y Mateo Vanegas
 
 Proyecto academico para el Parcial III de Patrones Arquitectonicos Avanzados, Opcion 2 basica. La solucion corre completa en localhost con Docker Compose.
 
